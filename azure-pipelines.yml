@@ -6,8 +6,7 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+
 strategy:
   matrix:
     linux:
@@ -18,6 +17,9 @@ strategy:
       imageName: "windows-latest"
   maxParallel: 3
 
+pool:
+  vmImage: $(imageName)
+  
 steps:
 - task: UsePythonVersion@0
   inputs:
